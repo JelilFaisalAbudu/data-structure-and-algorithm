@@ -44,29 +44,50 @@ class LinkedList
   end
   
   def add_at(index, item)
-    current_node = get_node(index)
+    # current_node = @head
     new_node = Node.new(item)
-    new_node.next_node = current_node.next_node
-    current_node.next_node = new_node
+    
+    # if the current_node/@head is empty, insert the new_node there
+    if @head.nil?
+      @head = new_node
+    elsif index == 0
+      new_node.next_node = @head
+      @head = new_node
+    else
+      current_node = get_node(index - 1)
+      new_node.next_node = current_node.next_node
+      current_node.next_node = new_node
+    end
   end
   
   def remove(index)
-    prev_node = get_node(index - 1)
-    current_node_to_remove = get_node(index)
-    next_node_to_join = current_node_to_remove.next_node
-    prev_node.next_node = next_node_to_join
-    
+    if @head.nil?
+      nil
+    elsif index == 0
+      current_node = @head
+      @head = current_node.next_node
+    else
+      node_to_remove = get_node(index)
+      before_next_node = get_node(index - 1)
+      before_next_node.next_node = node_to_remove.next_node
+    end
+  end
+  
+  def print_all_nodes
+    current_node = @head
+    while !current_node.next_node.nil?
+      puts current_node.value
+      current_node = current_node.next_node
+    end
   end
   
   private
   
   def get_node(index)
-    current_node = @head
-    
+    current_node=@head
     index.times do
-      current_node.next_node
-      
+      current_node=current_node.next_node
     end
     current_node
   end
-end
+ end

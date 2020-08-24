@@ -16,19 +16,15 @@ class LinkedList
     @tail = nil
   end
 
-  def add(number)
-    # your code here
-    new_node = Node.new(number)
+  def add(value)
+    new_node = Node.new(value)
     if @head.nil?
       @head = new_node
-      @tail = new_node.next_node
-      return
+    else
+      current_node = @head
+      @head = new_node
+      @head.next_node = current_node
     end
-    current_node = @head
-    until current_node.next_node.nil?
-      current_node = current_node.next_node
-    end
-    current_node.next_node = new_node
   end
 
   def get(index)

@@ -33,8 +33,6 @@ class LinkedList
     index.times do
       current_node = current_node.next_node
       return 'Not found...' unless current_node
-      # puts 'a node'
-      # puts current_node.value
     end
     current_node.value
   end
@@ -87,3 +85,9 @@ class LinkedList
     current_node
   end
  end
+
+ linked_list = LinkedList.new
+
+ linked_list.add(3)
+ puts linked_list.get(0)
+ puts linked_list.get(2)

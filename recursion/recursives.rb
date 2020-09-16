@@ -19,3 +19,14 @@ def factorial(num)
 		num * factorial(num - 1)
 	end
 end
+
+def print_n_bottles(n)
+	if n == 0
+		puts 'no more bottles for the beer on the wall'
+	else
+		puts "#{n} bottles on the wall"
+		print_n_bottles(n-1)
+	end
+end
+
+print_n_bottles(10)

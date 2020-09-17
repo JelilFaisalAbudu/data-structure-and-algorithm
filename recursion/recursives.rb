@@ -29,4 +29,13 @@ def print_n_bottles(n)
 	end
 end
 
+def sum(number)
+  # Your code here
+  if number <= 1
+    number
+  else
+    number + sum(number - 1)
+  end
+end
+
 print_n_bottles(10)

@@ -38,4 +38,28 @@ def sum(number)
   end
 end
 
+def sqrt(number)
+  sqrt_recursive(number, 0, number)
+end
+
+# This algo uses the normal binary type to find the square root of a given perfect square number
+def sqrt(number)
+	#  Define a helper method to do the work
+	sqrt_recursive(number, 0, number)
+end
+
+def sqrt_recursive(number, min_interval, max_interval)
+  # Your code here
+  while min_interval <= max_interval
+    mid_interval = (min_interval + max_interval)/2
+    if (mid_interval * mid_interval) == number
+      return mid_interval
+    elsif (mid_interval * mid_interval) > number
+      max_interval = mid_interval
+    else
+      min_interval = mid_interval
+    end
+  end
+end
+
 print_n_bottles(10)

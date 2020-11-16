@@ -19,3 +19,17 @@ def array_to_tree(array, index = 0)
 	node
 end
 
+
+def search_helper(node, min = nil, max = nil)
+  return true if node.nil?
+  return false if min && node.data < min
+  return false if max && node.data > max
+  
+  search_helper(node.left, min, node.data) && search_helper(node.right  , node.data, max)
+end
+
+def search_tree?(array)
+	root = array_to_tree(array)
+  # write your code here
+  search_helper(root)
+end

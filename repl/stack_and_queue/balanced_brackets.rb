@@ -2,8 +2,8 @@ def balanced_brackets?(string)
   # your code here
   stack = []
   balanced = false
-  
-  string.each_char do | char |
+
+  string.each_char do |char|
     if '({['.include?(char)
       stack << char
     elsif ']})'.include?(char) && !stack.empty?

@@ -21,31 +21,27 @@ class BST
         current = current.right
       end
     end
-    
+
     if parent.nil?
       @root = new_node
     elsif new_node.data <= parent.data
-      
+
       parent.left = new_node
     elsif new_node.data > parent.data
-      
+
       parent.right = new_node
     end
   end
 
-
   def pre_order(node = @root)
-    #implementation from the previous challenge
-    if node == nil
-      return ''
-    end
-    
+    # implementation from the previous challenge
+    return '' if node.nil?
+
     result = "#{node.data} "
-    result += pre_order(node.left);
-    result += pre_order(node.right);
+    result += pre_order(node.left)
+    result += pre_order(node.right)
   end
 end
-
 
 def binary_search_tree(array)
   tree = BST.new

@@ -11,30 +11,29 @@ class Node
 end
 
 def array_to_tree(array, i)
-  return nil if i >= array.length || array[i] == 0 # The array index can't be >= array size(base condition)
+  return nil if i >= array.length || array[i].zero? # The array index can't be >= array size(base condition)
 
   node = Node.new(array[i]) # instantiate the Node. This assigns the element to @data
-  node.left = array_to_tree(array, 2*i+1) # recursively assign elements to the left node or return if the base condition isn't met 
-  node.right = array_to_tree(array, 2*i+2) # recursively assign elements to the right node or return if the base condition isn't met
+  node.left = array_to_tree(array, 2 * i + 1) # recursively assign elements to the left node or return if the base condition isn't met
+  node.right = array_to_tree(array, 2 * i + 2) # recursively assign elements to the right node or return if the base condition isn't met
 
   node
 end
 
 def pre_order(node)
-  if node == nil
-    return ''
-  end
+  return '' if node.nil?
 
   result = "#{node.data} "
   result += pre_order(node.left)
-  result += pre_order(node.right)
+  result + pre_order(node.right)
 end
 
 def post_order(node)
-  if node == nil
-    return ''
-  end
+  return '' if node.nil?
+
   result = post_order(node.left)
   result += post_order(node.right)
-  result += "#{node.data} "
+  result + "#{node.data} "
 end
+
+p post_order(array_to_tree([3, 5, 32, 4, 5, 1], 0))

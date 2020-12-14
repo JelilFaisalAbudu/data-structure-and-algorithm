@@ -1,32 +1,32 @@
 # This algo uses the recursive stragety to find out if a given string is true or false
 
 def palinderome?(string)
-	if string.length == 0 || string.length == 1
-		true
-	else
-		if string[0] == string[-1]
-			palinderome?(string[1..-2])
-		else
-			false
-		end
-	end
+  if string.length == 0 || string.length == 1
+    true
+  else
+    if string[0] == string[-1]
+      palinderome?(string[1..-2])
+    else
+      false
+    end
+  end
 end
 
 def factorial(num)
-	if num == 0
-		1
-	else
-		num * factorial(num - 1)
-	end
+  if num == 0
+    1
+  else
+    num * factorial(num - 1)
+  end
 end
 
 def print_n_bottles(n)
-	if n == 0
-		puts 'no more bottles for the beer on the wall'
-	else
-		puts "#{n} bottles on the wall"
-		print_n_bottles(n-1)
-	end
+  if n == 0
+    puts 'no more bottles for the beer on the wall'
+  else
+    puts "#{n} bottles on the wall"
+    print_n_bottles(n - 1)
+  end
 end
 
 def sum(number)
@@ -44,8 +44,8 @@ end
 
 # This algo uses the normal binary type to find the square root of a given perfect square number
 def sqrt(number)
-	#  Define a helper method to do the work
-	sqrt_recursive(number, 0, number)
+  #  Define a helper method to do the work
+  sqrt_recursive(number, 0, number)
 end
 
 # def sqrt_recursive(number, min_interval, max_interval)
@@ -61,7 +61,6 @@ end
 #     end
 #   end
 # end
-
 
 # Implemantation with a recursive helper method
 

@@ -1,7 +1,7 @@
-# Implement a Node class 
+# Implement a Node class
 class Node
   attr_accessor :value, :next_node
-  
+
   def initialize(value)
     @value = value
   end
@@ -9,12 +9,12 @@ end
 
 class Stack
   attr_accessor :top, :min_tracker
-  
+
   def initialize
     @top = nil
     @min_tracker = []
-    
   end
+
   def push(number)
     # your code here
     new_node = Node.new(number)
@@ -27,7 +27,7 @@ class Stack
       @min_tracker << number if number < @min_tracker[-1]
     end
   end
-  
+
   def pop
     # your code here
     current_node = nil
@@ -40,12 +40,11 @@ class Stack
     end
     current_node
   end
-  
+
   def min
     # your code here
     @min_tracker[-1]
-  end    
-
+  end
 end
 
 stack = Stack.new

@@ -1,15 +1,15 @@
 # Linked List algo
 class Node
   attr_accessor :value, :next_node
-  
+
   def initialize(value, next_node = nil)
-	  @value = value
+    @value = value
     @next_node = next_node
   end
 end
 
 class LinkedList
-  #setup head and tail
+  # setup head and tail
   attr_accessor :head, :tail
   def initialize
     @head = nil
@@ -36,11 +36,11 @@ class LinkedList
     end
     current_node.value
   end
-  
+
   def add_at(index, item)
     # current_node = @head
     new_node = Node.new(item)
-    
+
     # if the current_node/@head is empty, insert the new_node there
     if @head.nil?
       @head = new_node
@@ -53,7 +53,7 @@ class LinkedList
       current_node.next_node = new_node
     end
   end
-  
+
   def remove(index)
     if @head.nil?
       nil
@@ -66,28 +66,28 @@ class LinkedList
       before_next_node.next_node = node_to_remove.next_node
     end
   end
-  
+
   def print_all_nodes
     current_node = @head
-    while !current_node.next_node.nil?
+    until current_node.next_node.nil?
       puts current_node.value
       current_node = current_node.next_node
     end
   end
-  
+
   private
-  
+
   def get_node(index)
-    current_node=@head
+    current_node = @head
     index.times do
-      current_node=current_node.next_node
+      current_node = current_node.next_node
     end
     current_node
   end
- end
+end
 
- linked_list = LinkedList.new
+linked_list = LinkedList.new
 
- linked_list.add(3)
- puts linked_list.get(0)
- puts linked_list.get(2)
+linked_list.add(3)
+puts linked_list.get(0)
+puts linked_list.get(2)

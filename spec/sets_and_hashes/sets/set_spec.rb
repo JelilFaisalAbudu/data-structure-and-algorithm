@@ -1,4 +1,4 @@
-require '../repl/set/find_duplicates.rb'
+require '../repl/sets_and_hashes/set/find_duplicates.rb'
 
 describe "Duplicate Finder" do
   context "given a list of items have two duplicate items" do

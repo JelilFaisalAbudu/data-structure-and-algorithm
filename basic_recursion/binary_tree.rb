@@ -14,8 +14,8 @@ def array_to_tree(array, i)
   return nil if i >= array.length || array[i].zero? # The array index can't be >= array size(base condition)
 
   node = Node.new(array[i]) # instantiate the Node. This assigns the element to @data
-  node.left = array_to_tree(array, 2 * i + 1) # recursively assign elements to the left node or return if the base condition isn't met
-  node.right = array_to_tree(array, 2 * i + 2) # recursively assign elements to the right node or return if the base condition isn't met
+  node.left = array_to_tree(array, 2 * i + 1) # recursively assign elements to the left node or return if the base condition is met
+  node.right = array_to_tree(array, 2 * i + 2) # recursively assign elements to the right node or return if the base condition is met
 
   node
 end

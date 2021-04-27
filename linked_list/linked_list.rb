@@ -22,7 +22,7 @@ class LinkedList
       current_node = current_node.next_node
       current_index += 1
 
-      return nil unless current_node
+      return -1 unless current_node
     end
     current_node.data
   end
@@ -38,6 +38,25 @@ class LinkedList
       current_index += 1
     end while current_node
     -1
+  end
+
+  def insert_at_index(index, data)
+    current_node = @root_node
+
+    if index == 0
+      current_node
+    else
+      current_index = 0
+
+      while current_index < index - 1
+        current_node = current_node.next_node
+        current_index += 1
+      end
+    end
+
+    new_node = Node.new(data)
+    new_node.next_node = current_node.next_node
+    current_node.next_node = new_node
   end
 end
 
@@ -57,3 +76,8 @@ puts list.read(2)
 
 puts list.index_of(2)
 puts list.index_of(100)
+
+list.insert_at_index(2, 6)
+puts list.index_of(6)
+puts list.read(2)
+puts list.read(3)

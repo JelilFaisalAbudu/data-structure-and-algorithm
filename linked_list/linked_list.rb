@@ -26,6 +26,19 @@ class LinkedList
     end
     current_node.data
   end
+
+  def index_of(data)
+    current_node = root_node
+    current_index = 0
+
+    begin
+      return current_index if current_node.data == data
+
+      current_node = current_node.next_node
+      current_index += 1
+    end while current_node
+    -1
+  end
 end
 
 node_1 = Node.new(1)
@@ -41,3 +54,6 @@ node_3.next_node = node_4
 list = LinkedList.new(node_1)
 
 puts list.read(2)
+
+puts list.index_of(2)
+puts list.index_of(100)

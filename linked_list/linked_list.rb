@@ -24,10 +24,25 @@ class LinkedList
       @head = new_node
     end
   end
+
+  def add_at_end(data)
+    new_node = Node.new(data)
+    if @head.nil?
+      @head = new_node
+    else
+      current_node = @head
+      until current_node.next_node.nil?
+        current_node = current_node.next_node
+      end
+      current_node.next_node = new_node
+    end
+  end
 end
 
 linked_list = LinkedList.new
 linked_list.add_at_front(23)
 puts linked_list.head.data
 linked_list.add_at_front(2)
+puts linked_list.head.data
+linked_list.add_at_end(5)
 puts linked_list.head.data

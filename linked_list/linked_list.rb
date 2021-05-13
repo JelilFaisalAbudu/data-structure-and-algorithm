@@ -37,6 +37,18 @@ class LinkedList
       current_node.next_node = new_node
     end
   end
+
+  def get_list
+    return [] if @head == nil
+
+    list = []
+    current_node = @head
+    until current_node.nil?
+      list << current_node.data
+      current_node = current_node.next_node
+    end
+    list
+  end
 end
 
 linked_list = LinkedList.new
@@ -46,3 +58,5 @@ linked_list.add_at_front(2)
 puts linked_list.head.data
 linked_list.add_at_end(5)
 puts linked_list.head.data
+
+p linked_list.get_list

@@ -26,23 +26,32 @@ class UndirectedGraph
 
   def remove_edge(vertex1, vertex2)
     if @edges[vertex1] && @edges[vertex1][vertex2]
-      @edges.delete(@edges[vertex1][vertex2])
+      @edges[vertex1].delete(vertex2)
     end
 
     if @edges[vertex2] && @edges[vertex2][vertex1]
-      @edges.delete(@edges[vertex2][vertex1])
+      @edges[vertex2].delete(vertex1)
+    end
+  end
+
+  def remove_vertex(vertex)
+    if @edges[vertex]
+      @edges[vertex].each_key do |adj_vertex|
+        remove_edge(adj_vertex, vertex)
+      end
+      @edges.delete(vertex)
     end
   end
 end
 
-# graph1 = UndirectedGraph.new
-# graph1.add_vertex(1)
-# graph1.add_vertex(2)
+graph1 = UndirectedGraph.new
+graph1.add_vertex(1)
+graph1.add_vertex(2)
 
-# puts graph1.edges
+puts graph1.edges
 
-# graph1.add_edge(1, 2, 1)
-# puts graph1.edges
+graph1.add_edge(1, 2, 1)
+puts graph1.edges
 
 puts 'Graph 2'
 graph2 = UndirectedGraph.new
@@ -61,4 +70,6 @@ graph2.add_edge(23, 25, 2100)
 p graph2.edges
 
 graph2.remove_edge(10, 23)
+p graph2.edges
+graph2.remove_vertex(5)
 p graph2.edges

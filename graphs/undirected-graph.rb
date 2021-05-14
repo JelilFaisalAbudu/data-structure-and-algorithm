@@ -20,7 +20,6 @@ class UndirectedGraph
 
   def add_edge(vertex1, vertex2, weight = nil)
     weight = 0 if weight.nil?
-    # 
     @edges[vertex1][vertex2] = weight
     @edges[vertex2][vertex1] = weight
   end

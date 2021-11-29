@@ -1,4 +1,4 @@
-def binary_search(array, element)
+def binary_search_array(array, element)
   lower_bound = 0
   upper_bound = array.length - 1
  

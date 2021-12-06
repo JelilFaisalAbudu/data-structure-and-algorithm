@@ -1,14 +1,11 @@
-def convert_decimal_to_binary(num, binary_string = '')
-  puts binary_string
-  if num < 2
-    binary_string += (num % 2).to_s
-    puts binary_string
-    binary_string
+def convert_decimal_to_binary(num)
+  if num <= 1
+    puts num.to_s
+    num.to_s
   else
-    convert_decimal_to_binary(num / 2)
-   binary_string += (num % 2).to_s
+    puts (num % 2).to_s
+   convert_decimal_to_binary(num / 2) + (num % 2).to_s
   end
-  binary_string
 end
 
- puts convert_decimal_to_binary(2)
+ puts convert_decimal_to_binary(245)

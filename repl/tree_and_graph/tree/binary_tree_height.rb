@@ -10,18 +10,11 @@ end
 
 def binary_tree_height(array_tree)
   # write your code here
-  # A helper method to convert the arrqy to binary tree
-  def array_to_tree(array, i)
-    return nil if i >= array.length
+  # Call all the helper methods here
+  height(array_to_tree(array_tree, 0))
+end
 
-    node = Node.new(array[i])
-    node.left = array_to_tree(array, 2 * i + 1)
-    node.right = array_to_tree(array, 2 * i + 2)
-
-    node
-  end
-
-  # Helper method to find the height of the tree
+# Helper method to find the height of the tree
   def height(tree)
     return 0 if tree.nil?
 
@@ -31,6 +24,13 @@ def binary_tree_height(array_tree)
     left_height > right_height ? left_height + 1 : right_height + 1
   end
 
-  # Call all the helper methods here
-  height(array_to_tree(array_tree, 0))
-end
+# A helper method to convert the arrqy to binary tree
+  def array_to_tree(array, i)
+    return nil if i >= array.length
+
+    node = Node.new(array[i])
+    node.left = array_to_tree(array, 2 * i + 1)
+    node.right = array_to_tree(array, 2 * i + 2)
+
+    node
+  end

@@ -1,4 +1,4 @@
-def quick_sort(array)
+def insertion_sort(array)
   cloned_array = array.clone
   for outer_index in 0...array.length do
     inner_index = outer_index
